@@ -50,6 +50,7 @@ var storyTitle = document.getElementsByClassName("index-story-title")[0]
 var titleList = document.getElementsByClassName("index-story-titleList")[0]
 var chapterList = document.getElementsByClassName("chapterList")
 var listTitle = document.getElementsByClassName("listTitle")[0]
+var theTitle = document.getElementsByClassName("theTitle")
 function stop(e) {
 	if (e.stopPropagation){
 		e.stopPropagation();
@@ -57,7 +58,6 @@ function stop(e) {
 		e.cancelBubble = true;
 	}
 }
-
 function storyBtn(){
 	if(loadStoryStep===0){
 		storyBefore.style.display = "none"
@@ -73,11 +73,10 @@ function storyBtn(){
 function chapterMove(i){
 	loadStoryStep = i
 	storyBtn()
-//	storyArticle.style.marginLeft = (-100*loadStoryStep)+"%"
 	chatperMain()
 }
-
 function chatperMain(){
+	listTitle.innerText = theTitle[loadStoryStep].innerText
 	if(window.getComputedStyle(storyChapter[count]).height=== "1000px"){
 		storyArticle.style.marginLeft = (-100*loadStoryStep)+"%"
 	}else{
@@ -88,21 +87,23 @@ function chatperMain(){
 		},1000)
 	}
 }
-function nextChapter(){
+function nextChapter(event){
+	var theEvent = event|| window.event
 	count = loadStoryStep
 	loadStoryStep+=1
 	chatperMain()
 	setTimeout(function(){storyBtn()},1000)
-	event.name="nextChapter"
-	lockBtn(this,event)
+	theEvent.name="nextChapter"
+	lockBtn(this,theEvent)
 }
-function beforeChapter(){
+function beforeChapter(event){
+	var theEvent = event|| window.event
 	count = loadStoryStep
 	loadStoryStep-=1
 	chatperMain()
 	setTimeout(function(){storyBtn()},1000)
 	event.name="beforeChapter"
-	lockBtn(this,event)
+	lockBtn(this,theEvent)
 }
 function lockBtn(btn,e){
 	if(e.name==="nextChapter"){
@@ -119,8 +120,9 @@ function lockBtn(btn,e){
 	}
 }
 
-storyNav.addEventListener("click",function(){
-	stop(event)
+storyNav.addEventListener("click",function(event){
+	var theEvent = event|| window.event
+	stop(theEvent)
 	if(titleList.className==="index-story-titleList"){
 		titleList.className+=" titleList-state"
 	}else{
@@ -129,16 +131,19 @@ storyNav.addEventListener("click",function(){
 })
 for(var i = 0; i<chapterList.length-1; i++){
 	(function(i){
-		chapterList[i].addEventListener("mouseover",function(){
-			stop(event)
+		chapterList[i].addEventListener("mouseover",function(event){
+			var theEvent = event|| window.event
+			stop(theEvent)
 			chapterList[i].className += " chapter-focus"
 		})
-		chapterList[i].addEventListener("mouseout",function(){
-			stop(event)
+		chapterList[i].addEventListener("mouseout",function(event){
+			var theEvent = event|| window.event
+			stop(theEvent)
 			chapterList[i].className = "chapterList"
 		})
-		chapterList[i].addEventListener("click",function(){
-			stop(event)
+		chapterList[i].addEventListener("click",function(event){
+			var theEvent = event|| window.event
+			stop(theEvent)
 			titleList.className="index-story-titleList"
 			listTitle.innerText = chapterList[i].innerText
 			count = loadStoryStep
@@ -149,8 +154,6 @@ for(var i = 0; i<chapterList.length-1; i++){
 document.body.addEventListener("click",function(){
 	titleList.className="index-story-titleList"
 })
-
-
 loadStory.addEventListener('click',function(){
 	if(window.getComputedStyle(storyChapter[loadStoryStep]).height===storyChapter[loadStoryStep].scrollHeight+"px" || window.getComputedStyle(storyChapter[loadStoryStep]).height===storyChapter[loadStoryStep].scrollHeight-12+"px"){
 		storyChapter[loadStoryStep].style.height = "1000px"

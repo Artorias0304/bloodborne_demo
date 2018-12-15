@@ -1,7 +1,3 @@
-body{
-	background-image: url(../image/oldhunters2k_2.jpg) ;
-	background-attachment: fixed;
-}
 @font-face {
   font-family: 'iconfont';
   src: url('../icon/iconfont.eot');
@@ -17,27 +13,11 @@ body{
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.index{
-	width:60rem;
-	background: rgba(0,0,0,0.7);
-	margin: 0 auto;
-	color:#fff;
-}
-.banner{
-	width:60rem;
-	height:11.25rem;
-	position: fixed;
-	top:0;
-	z-index: 2;	
-}
 .instruction,.index-sowing-img,.index-sowing-img img, .index-nav,.index-story{
 	width:50rem;
 	margin:0 auto;
 	margin-top:1rem;
 	line-height: 1.5rem;
-}
-.index-main{
-	margin-top:11.25rem ;
 }
 .index-main .instruction span{
 	display: inline-block;
@@ -54,7 +34,7 @@ body{
 	display: inline-block;
 	width:4rem;
 	height:4rem;
-	background:#000000;
+	background:#000;
 	opacity:0.5;
 	text-align: center;
 	position:absolute;
@@ -99,28 +79,6 @@ body{
 }
 .index-sowing-img img{
 	margin-top:0;
-}
-.index-nav ul{
-	width:100%;
-	text-indent: 0;
-	display: table;
-}
-.index-nav li{
-	width:25%;
-	line-height: 3rem;
-	text-align: center;
-	font-size:1.5rem;
-	display: table-cell;
-}
-.index-nav li a{
-	width:100%;
-	display: inline-block;
-	color:#fff;
-	background:#000000;
-	border:1px solid #fff
-}
-.index-nav li a:hover{
-	background: #ccc;
 }
 .index-story{
 	text-indent: 0;

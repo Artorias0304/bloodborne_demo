@@ -1,10 +1,43 @@
 body{
-	background-image: url(../image/oldhunters2k.jpg) ;
-	background-repeat:no-repeat ;
-	background-position:top ;
-	background-color: black;
-	
+	background-image: url(../image/oldhunters2k_2.jpg) ;
+	background-attachment: fixed;
 }
-h2{
-	font-size: 2rem;
+.index{
+	width:60rem;
+	background: rgba(0,0,0,0.7);
+	margin: 0 auto;
+	color:#fff;
 }
+.banner{
+	width:60rem;
+	height:11.25rem;
+	position: fixed;
+	top:0;
+	z-index: 2;	
+}
+.index-main{
+	margin-top:11.25rem ;
+}
+.index-nav ul{
+	width:100%;
+	text-indent: 0;
+	display: table;
+}
+.index-nav li{
+	width:25%;
+	line-height: 3rem;
+	text-align: center;
+	font-size:1.5rem;
+	display: table-cell;
+}
+.index-nav li a{
+	width:100%;
+	display: inline-block;
+	color:#fff;
+	background:#000000;
+	border:1px solid #fff
+}
+.index-nav li a:hover{
+	background: #ccc;
+}
+
